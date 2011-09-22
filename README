@@ -1,2 +1,12 @@
-- create a task to verify what has changed between a clean ext/hook project and a customized one.
-- take in account the code format!?!?
+To use it you should place the plugin-sdk-differ-1.0-SNAPSHOT.jar file into the ${plugin-sdk.home}/lib directory and add the snippet to your build.xml
+
+<target name="build-diff">
+	<java classname="com.liferay.portal.tools.UpgradeDiffer" fork="true" newenvironment="true">
+		<classpath refid="lib.classpath" />
+		<classpath refid="portal.classpath" />
+		<arg value="${basedir}" />
+		<arg value="${source.zip}" />
+	</java>
+</target>
+
+Enjoy!
